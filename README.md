@@ -133,3 +133,14 @@ This repository is inspired from [EleutherAI's LM evaluation harness](https://gi
 ## To do:
 - [ ] test code-to-text for other languages than python
 - [ ] test APPS one-shot setup
+
+
+## Toolkit run
+- sync `requriments.txt` and `Docekrfile` as the file is orginized to optimize frequent `docker build/push`
+- set desired number of processes in `accelerate_cfg.yaml`
+- set desired number of cores and memory in `Makefile` `run` target
+- it is needed ot have data object `text2code_dataset_repo_workdir` in your tookit account
+- run
+  ```
+  make run
+  ```
