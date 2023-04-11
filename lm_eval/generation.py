@@ -55,10 +55,10 @@ def parallel_generations(task, dataset, accelerator, model, tokenizer, n_tasks, 
         "top_k": args.top_k,
         "max_length": args.max_length_generation,
     }
-    if task.stop_words:
-        gen_kwargs["stopping_criteria"] = StoppingCriteriaList(
-            [EndOfFunctionCriteria(0, task.stop_words, tokenizer)]
-        )
+    #if task.stop_words:
+    #    gen_kwargs["stopping_criteria"] = StoppingCriteriaList(
+    #        [EndOfFunctionCriteria(0, task.stop_words, tokenizer)]
+    #    )
 
     if accelerator.is_main_process:
         print(f"number of problems for this task is {n_tasks}")

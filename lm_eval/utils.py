@@ -81,6 +81,7 @@ class TokenizedDataset(IterableDataset):
                     "ids": outputs.input_ids[sample],
                     "task_id": sample,
                     "input_len": outputs.attention_mask[sample].sum(),
+                    "attention_mask": outputs.attention_mask[sample],
                 }
 
     def _make_infill_prompt(self, prefix, suffix):
@@ -123,10 +124,11 @@ def complete_code(
         ),
     ):
         with torch.no_grad():
-            if task.stop_words:
-                gen_kwargs["stopping_criteria"][0].start_length = batch["ids"].shape[-1]
+            #if task.stop_words:
+            #    gen_kwargs["stopping_criteria"][0].start_length = batch["ids"].shape[-1]
             generated_tokens = accelerator.unwrap_model(model).generate(
-                input_ids=batch["ids"][:, : batch["input_len"]],
+                input_ids=batch["ids"],
+                attention_mask=batch["attention_mask"],
                 num_return_sequences=batch_size,
                 **gen_kwargs,
             )

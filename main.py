@@ -152,16 +152,17 @@ def main():
         # here we generate code and save it (evaluation is optional but True by default)
         print("Loading the model and tokenizer")
         model = AutoModelForCausalLM.from_pretrained(
-            args.model,
-            revision=args.revision,
+            "bigcode/santacoder",
+            revision="47ad9f0",
             trust_remote_code=args.trust_remote_code,
             use_auth_token=args.use_auth_token,
         )
         tokenizer = AutoTokenizer.from_pretrained(
-            args.model,
-            revision=args.revision,
+            "bigcode/santacoder",
+            revision="47ad9f0",
             use_auth_token=args.use_auth_token,
             truncation_side="left",
+            padding_side="left",
         )
         if not tokenizer.eos_token:
             if tokenizer.bos_token:
