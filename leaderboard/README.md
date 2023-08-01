@@ -1,4 +1,13 @@
-# :star: Multilingual Code Evaluation LeaderBoard Guide
+<h1 align="center">:star: Multilingual Code Evaluation LeaderBoard Guide</h1>
+
+
+<h4 align="center">
+    <p>
+        <a href="#running-the-evaluation">Running Evaluation</a> |
+        <a href="#submission-of-results-to-the-leaderboard">Results Submission</a> |
+    <p>
+</h4>
+
 This is a guide to submit and reproduce the numbers in the [Multilingual Code Evaluation LeaderBoard](https://huggingface.co/spaces/bigcode/multilingual-code-evals).
 The LeaderBoard is a demo for evaluating and comparing the performance of language models on code generation tasks.
 
